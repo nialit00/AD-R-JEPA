@@ -1,1 +1,0 @@
-python train.py --config configs/train/finetune_bevcar_jepa.yaml

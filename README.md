@@ -1,4 +1,4 @@
-# BEVCar
+# ADR-JEPA with BEVCar
 [**arXiv**](https://arxiv.org/abs/2403.11761) | [**IEEE Xplore**](https://ieeexplore.ieee.org/document/10802147) | [**Website**](http://bevcar.cs.uni-freiburg.de/) | [**Video**](https://youtu.be/bB_k_6IvPHQ?feature=shared)
 
 This repository is the official implementation of the paper:

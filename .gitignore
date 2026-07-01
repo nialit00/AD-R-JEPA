@@ -1,0 +1,16 @@
+# huge experiment data
+logs_nuscenes/
+wandb/
+model_checkpoints/
+logs/
+output/
+
+# caches
+__pycache__/
+*.pyc
+
+# env / system
+.vscode/
+.idea/
+*.pth
+*.ckpt

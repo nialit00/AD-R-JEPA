@@ -1,0 +1,73 @@
+# model name
+exp_name: 'BEVCar'
+
+# Eval parameters
+log_freq: 100
+shuffle: false
+dset: 'trainval'
+batch_size: 1  # keep it at 1 for the moment
+nworkers: 8
+do_drn_val_split: true
+
+# Directories
+data_dir: '/beegfs/scratch/workspace/es_nialit00-nuscenes_ws/nuscenes'
+custom_dataroot: 'datasets/scaled_images'
+log_dir: 'logs_nuscenes'
+
+#Fine tune 0.6
+#init_dir: 'model_checkpoints/BEVCarFinetune_1_0.6_1x5_3e-4s_15-36-13' #ckpt 1-45 k
+
+#Fine tune 0.5
+#init_dir: 'model_checkpoints/BEVCarFinetune_1_0.5_1x5_3e-4s_21-45-36' #ckpt 1-47 k
+#init_dir: 'model_checkpoints/BEVCarFinetune_2_0.5_1x5_3e-4s_15-31-02' #ckpt 41-75k
+
+#Fine tune 0.4
+#init_dir: 'model_checkpoints/BEVCarFinetune_1_0.4_1x5_3e-4s_22-40-09' #ckpt 1-47 k
+#init_dir: 'model_checkpoints/BEVCarFinetune_2_0.4_1x5_3e-4s_00-20-09'
+
+#Fine tune 0.3
+#init_dir: 'model_checkpoints/BEVCarFinetune_1_0.3_1x5_3e-4s_11-59-36' #ckpt 1-56 k
+#init_dir: 'model_checkpoints/BEVCarFinetune_2_0.3_1x5_3e-4s_13-36-24' #ckpt 60-75 k
+
+#Fine tune 0.1
+#init_dir: 'model_checkpoints/BEVCarFinetune_1_0.1_1x5_3e-4s_17-34-41' #ckpt 1-22 k
+init_dir: 'model_checkpoints/BEVCarFinetune_2_0.1_1x5_3e-4s_02-06-28' #ckpt 23-70 k
+
+
+#normal BEVCar
+#init_dir: 'model_checkpoints/BEVCar_1x5_3e-4s_19-21-10' # ckpt 1-31 k
+#init_dir: 'model_checkpoints/BEVCar_1x5_3e-4s_21-42-23' # ckpt 32-75 k
+
+
+load_step: 70000
+ignore_load: null
+
+# Data parameters
+final_dim: [448, 896]  # to match //8, //14, //16 and //32 in Vit
+ncams: 6
+nsweeps: 5
+
+# Model parameters
+encoder_type: 'dino_v2'
+radar_encoder_type: 'voxel_net'
+use_rpn_radar: false
+train_task: 'both'
+use_radar: true
+use_radar_filters: false
+use_radar_encoder: true
+use_metaradar: false
+use_shallow_metadata: true
+use_pre_scaled_imgs: false
+use_obj_layer_only_on_map: true
+init_query_with_image_feats: true
+do_rgbcompress: true
+use_multi_scale_img_feats: true
+num_layers: 6
+
+device_ids: [0]
+freeze_dino: true
+do_feat_enc_dec: true
+combine_feat_init_w_learned_q: true
+model_type: 'transformer'
+use_radar_occupancy_map: false
+learnable_fuse_query: true

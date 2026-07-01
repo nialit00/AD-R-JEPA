@@ -1,0 +1,30 @@
+DATA_CONFIG:
+  DATASET_ROOT: "/beegfs/scratch/workspace/es_nialit00-nuscenes_ws/nuscenes"
+  VERSION: "v1.0-trainval"
+  NSWEEPS: 5
+
+  # Radar Feature Mode (BEVCar)
+  USE_SHALLOW_METADATA: true     # 6 Features
+  USE_METARADAR: false
+  USE_RADAR_ONLY: false
+
+  # Voxelization (BEVCar defaults)
+  VOXEL_SIZE: [0.2, 0.2, 8.0]
+  POINT_CLOUD_RANGE: [-50, -50, -5, 50, 50, 3]
+  POINT_CLOUD_RANGE_GRID_SIZE: [200, 200, 1]
+
+
+MODEL:
+  NAME: AD_R_JEPA
+
+  # JEPA Hyperparameters
+  MASKED_RATIO: 0.7
+  ALPHA: 1.0
+  BETA: 1.0
+
+
+TRAINING:
+  BATCH_SIZE: 4
+  EPOCHS: 20
+  LR: 0.0001
+  OUTPUT_DIR: "output/ad_r_jepa_ssl"
